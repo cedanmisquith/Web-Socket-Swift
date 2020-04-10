@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,234 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WebsocketSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tNF-A1-HDI">
+                                <rect key="frame" x="60" y="64" width="294" height="25"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Socket not connected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ml-ob-TPL">
+                                        <rect key="frame" x="0.0" y="0.0" width="294" height="25"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="0ml-ob-TPL" firstAttribute="leading" secondItem="tNF-A1-HDI" secondAttribute="leading" id="1Gg-6r-a9r"/>
+                                    <constraint firstAttribute="bottom" secondItem="0ml-ob-TPL" secondAttribute="bottom" id="EdJ-CJ-Rhd"/>
+                                    <constraint firstAttribute="height" constant="25" id="YY6-Iq-8f6"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="blu-fv-9r1"/>
+                                    <constraint firstItem="0ml-ob-TPL" firstAttribute="top" secondItem="tNF-A1-HDI" secondAttribute="top" id="fKG-yM-3CR"/>
+                                    <constraint firstAttribute="trailing" secondItem="0ml-ob-TPL" secondAttribute="trailing" id="uF8-uY-BX5"/>
+                                </constraints>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aFH-dg-auF">
+                                <rect key="frame" x="20" y="109" width="374" height="150"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="fYY-HT-nkE"/>
+                                </constraints>
+                                <color key="textColor" red="0.12549019610000001" green="0.67843137249999996" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hot-gq-Tzd">
+                                <rect key="frame" x="296" y="279" width="98" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="s9d-4p-MuF"/>
+                                </constraints>
+                                <state key="normal" title="Show Console"/>
+                                <connections>
+                                    <action selector="consoleStateButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1zY-OE-xeR"/>
+                                </connections>
+                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gjE-cw-uGM">
+                                <rect key="frame" x="0.0" y="309" width="414" height="553"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oIQ-vq-1nF">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="475"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter socket end point:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qOm-BP-03a">
+                                                <rect key="frame" x="20" y="20" width="374" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="Elf-Od-xrB"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="eg: wss://echo.websocket.org" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TTS-gh-xbj">
+                                                <rect key="frame" x="20" y="51" width="374" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="34" id="8ET-9B-imN"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MmE-EN-PrR">
+                                                <rect key="frame" x="124.5" y="115" width="165" height="80"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ki8-rN-hSW">
+                                                        <rect key="frame" x="0.0" y="0.0" width="165" height="30"/>
+                                                        <state key="normal" title="Connect to Socket"/>
+                                                        <connections>
+                                                            <action selector="connectButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Mt-Gn-Pyj"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HxU-bI-5i2">
+                                                        <rect key="frame" x="0.0" y="50" width="165" height="30"/>
+                                                        <state key="normal" title="Disconnect from Socket"/>
+                                                        <connections>
+                                                            <action selector="disconnectButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6hd-Nc-bhZ"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="HxU-bI-5i2" firstAttribute="top" secondItem="Ki8-rN-hSW" secondAttribute="bottom" constant="20" id="83A-p6-nEm"/>
+                                                    <constraint firstItem="Ki8-rN-hSW" firstAttribute="top" secondItem="MmE-EN-PrR" secondAttribute="top" id="KCS-72-M8a"/>
+                                                    <constraint firstAttribute="bottom" secondItem="HxU-bI-5i2" secondAttribute="bottom" id="LDJ-7x-yo2"/>
+                                                    <constraint firstItem="HxU-bI-5i2" firstAttribute="leading" secondItem="MmE-EN-PrR" secondAttribute="leading" id="Ln1-Ws-sUf"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Ki8-rN-hSW" secondAttribute="trailing" id="cVu-oh-Q0p"/>
+                                                    <constraint firstAttribute="height" constant="80" id="fcV-jY-8LN"/>
+                                                    <constraint firstAttribute="trailing" secondItem="HxU-bI-5i2" secondAttribute="trailing" id="nmP-04-30G"/>
+                                                    <constraint firstItem="Ki8-rN-hSW" firstAttribute="leading" secondItem="MmE-EN-PrR" secondAttribute="leading" id="pkS-6F-zgF"/>
+                                                </constraints>
+                                            </view>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter an object to send to socket." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7Op-h6-gil">
+                                                <rect key="frame" x="20" y="225" width="374" height="130"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="130" id="hm7-hm-rxp"/>
+                                                </constraints>
+                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AO4-ua-ekB">
+                                                <rect key="frame" x="110.5" y="375" width="193" height="30"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iwJ-8G-Vbp">
+                                                        <rect key="frame" x="0.0" y="0.0" width="85" height="30"/>
+                                                        <state key="normal" title="Send Object"/>
+                                                        <connections>
+                                                            <action selector="sendObjectButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MFL-PE-EvA"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgj-Wv-xtq">
+                                                        <rect key="frame" x="105" y="0.0" width="88" height="30"/>
+                                                        <state key="normal" title="Clear Screen"/>
+                                                        <connections>
+                                                            <action selector="clearButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0qP-kP-vZj"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="73u-4c-21f"/>
+                                                    <constraint firstAttribute="bottom" secondItem="iwJ-8G-Vbp" secondAttribute="bottom" id="CTd-YV-J2a"/>
+                                                    <constraint firstAttribute="trailing" secondItem="fgj-Wv-xtq" secondAttribute="trailing" id="K5c-hx-Q80"/>
+                                                    <constraint firstItem="iwJ-8G-Vbp" firstAttribute="leading" secondItem="AO4-ua-ekB" secondAttribute="leading" id="W0C-TZ-E76"/>
+                                                    <constraint firstItem="fgj-Wv-xtq" firstAttribute="leading" secondItem="iwJ-8G-Vbp" secondAttribute="trailing" constant="20" id="WtP-ZH-ogh"/>
+                                                    <constraint firstItem="iwJ-8G-Vbp" firstAttribute="top" secondItem="AO4-ua-ekB" secondAttribute="top" id="eZq-ap-KUb"/>
+                                                    <constraint firstAttribute="bottom" secondItem="fgj-Wv-xtq" secondAttribute="bottom" id="gFo-vN-qld"/>
+                                                    <constraint firstItem="fgj-Wv-xtq" firstAttribute="top" secondItem="AO4-ua-ekB" secondAttribute="top" id="gRz-c9-n7p"/>
+                                                </constraints>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vHm-oE-dPv">
+                                                <rect key="frame" x="148.5" y="425" width="117" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="566-uS-BRS"/>
+                                                </constraints>
+                                                <state key="normal" title="Load Test Object"/>
+                                                <connections>
+                                                    <action selector="testObjectButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="10G-rs-cNG"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="7Op-h6-gil" secondAttribute="trailing" constant="20" id="0tV-ed-lyN"/>
+                                            <constraint firstItem="MmE-EN-PrR" firstAttribute="top" secondItem="TTS-gh-xbj" secondAttribute="bottom" constant="30" id="4MX-zL-Scy"/>
+                                            <constraint firstItem="MmE-EN-PrR" firstAttribute="centerX" secondItem="oIQ-vq-1nF" secondAttribute="centerX" id="5eu-9T-of2"/>
+                                            <constraint firstAttribute="bottom" secondItem="vHm-oE-dPv" secondAttribute="bottom" constant="20" id="69f-vM-v74"/>
+                                            <constraint firstItem="AO4-ua-ekB" firstAttribute="top" secondItem="7Op-h6-gil" secondAttribute="bottom" constant="20" id="6MC-sd-8w0"/>
+                                            <constraint firstItem="7Op-h6-gil" firstAttribute="top" secondItem="MmE-EN-PrR" secondAttribute="bottom" constant="30" id="6wI-Oa-H34"/>
+                                            <constraint firstItem="qOm-BP-03a" firstAttribute="leading" secondItem="oIQ-vq-1nF" secondAttribute="leading" constant="20" id="9EK-jh-F0q"/>
+                                            <constraint firstAttribute="trailing" secondItem="qOm-BP-03a" secondAttribute="trailing" constant="20" id="Stv-Su-DP2"/>
+                                            <constraint firstItem="vHm-oE-dPv" firstAttribute="centerX" secondItem="oIQ-vq-1nF" secondAttribute="centerX" id="e1D-dQ-5FS"/>
+                                            <constraint firstItem="TTS-gh-xbj" firstAttribute="top" secondItem="qOm-BP-03a" secondAttribute="bottom" constant="10" id="icn-Jn-gNj"/>
+                                            <constraint firstItem="AO4-ua-ekB" firstAttribute="centerX" secondItem="oIQ-vq-1nF" secondAttribute="centerX" id="rbV-lT-Fqy"/>
+                                            <constraint firstItem="vHm-oE-dPv" firstAttribute="top" secondItem="AO4-ua-ekB" secondAttribute="bottom" constant="20" id="t7c-Ty-smK"/>
+                                            <constraint firstItem="TTS-gh-xbj" firstAttribute="leading" secondItem="oIQ-vq-1nF" secondAttribute="leading" constant="20" id="tCM-Ed-uHt"/>
+                                            <constraint firstItem="qOm-BP-03a" firstAttribute="top" secondItem="oIQ-vq-1nF" secondAttribute="top" constant="20" id="u7z-Vs-cy9"/>
+                                            <constraint firstAttribute="trailing" secondItem="TTS-gh-xbj" secondAttribute="trailing" constant="20" id="uqg-fQ-kGO"/>
+                                            <constraint firstItem="7Op-h6-gil" firstAttribute="leading" secondItem="oIQ-vq-1nF" secondAttribute="leading" constant="20" id="zlr-UU-Hte"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="oIQ-vq-1nF" secondAttribute="trailing" id="Ikk-av-Vda"/>
+                                    <constraint firstItem="oIQ-vq-1nF" firstAttribute="leading" secondItem="gjE-cw-uGM" secondAttribute="leading" id="UCc-XH-DJ2"/>
+                                    <constraint firstAttribute="bottom" secondItem="oIQ-vq-1nF" secondAttribute="bottom" id="mEr-Ku-ch4"/>
+                                    <constraint firstItem="oIQ-vq-1nF" firstAttribute="top" secondItem="gjE-cw-uGM" secondAttribute="top" id="vak-cb-0OH"/>
+                                    <constraint firstItem="oIQ-vq-1nF" firstAttribute="height" secondItem="gjE-cw-uGM" secondAttribute="height" priority="250" id="yNp-L6-3ma"/>
+                                    <constraint firstItem="oIQ-vq-1nF" firstAttribute="width" secondItem="gjE-cw-uGM" secondAttribute="width" id="zFk-eF-4Ji"/>
+                                </constraints>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFi-WG-wU0">
+                                <rect key="frame" x="20" y="279" width="96" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="uZM-f0-cZY"/>
+                                </constraints>
+                                <state key="normal" title="Clear Console"/>
+                                <connections>
+                                    <action selector="clearConsoleButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oz3-TE-Y69"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="gjE-cw-uGM" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="3wd-P4-TYZ"/>
+                            <constraint firstItem="tNF-A1-HDI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="54p-Xg-HA7"/>
+                            <constraint firstItem="gjE-cw-uGM" firstAttribute="top" secondItem="Hot-gq-Tzd" secondAttribute="bottom" id="6Zm-Da-S45"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tNF-A1-HDI" secondAttribute="trailing" constant="60" id="Byb-ip-IGB"/>
+                            <constraint firstItem="Hot-gq-Tzd" firstAttribute="top" secondItem="aFH-dg-auF" secondAttribute="bottom" constant="20" id="Cfu-vx-zyk"/>
+                            <constraint firstItem="UFi-WG-wU0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Edd-LS-sJU"/>
+                            <constraint firstItem="aFH-dg-auF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="LV0-Ov-sdS"/>
+                            <constraint firstItem="UFi-WG-wU0" firstAttribute="top" secondItem="aFH-dg-auF" secondAttribute="bottom" constant="20" id="UQl-CD-ID9"/>
+                            <constraint firstItem="Hot-gq-Tzd" firstAttribute="leading" secondItem="UFi-WG-wU0" secondAttribute="trailing" priority="250" constant="230" id="lbD-Hc-5dh"/>
+                            <constraint firstItem="tNF-A1-HDI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="mvi-hX-hUs"/>
+                            <constraint firstItem="gjE-cw-uGM" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="rDS-2t-9aX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aFH-dg-auF" secondAttribute="trailing" constant="20" id="tEG-rO-Fqz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Hot-gq-Tzd" secondAttribute="trailing" constant="20" id="toG-81-McD"/>
+                            <constraint firstItem="aFH-dg-auF" firstAttribute="top" secondItem="tNF-A1-HDI" secondAttribute="bottom" constant="20" id="ydQ-C2-gwx"/>
+                            <constraint firstItem="gjE-cw-uGM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zKa-Xe-dtJ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="clearConsoleButton" destination="UFi-WG-wU0" id="pBh-S9-yx5"/>
+                        <outlet property="connectSocketButton" destination="Ki8-rN-hSW" id="KjZ-1e-auw"/>
+                        <outlet property="consoleButton" destination="Hot-gq-Tzd" id="l7J-qa-FwB"/>
+                        <outlet property="consoleTextView" destination="aFH-dg-auF" id="QcV-dU-eqj"/>
+                        <outlet property="consoleTextViewHeightConstraint" destination="fYY-HT-nkE" id="epS-vs-DKe"/>
+                        <outlet property="disconnectSocketButton" destination="HxU-bI-5i2" id="hRm-hA-IWp"/>
+                        <outlet property="objectTextView" destination="7Op-h6-gil" id="ooY-ip-est"/>
+                        <outlet property="sendObjectButton" destination="iwJ-8G-Vbp" id="T7m-3j-SvF"/>
+                        <outlet property="socketStatusLabel" destination="0ml-ob-TPL" id="G3S-KZ-dhL"/>
+                        <outlet property="socketStatusView" destination="tNF-A1-HDI" id="RSi-ut-Hsr"/>
+                        <outlet property="socketTextField" destination="TTS-gh-xbj" id="Bje-Gq-6hI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-26.086956521739133" y="116.51785714285714"/>
         </scene>
     </scenes>
 </document>
